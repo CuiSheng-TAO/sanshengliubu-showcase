@@ -3,85 +3,87 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 <title>三省六部 - AI 多 Agent 编排治理系统 | 项目展示</title>
 <style>
 :root {
-  --blue-600: #2563eb; --blue-700: #1d4ed8; --blue-50: #eff6ff;
-  --violet-600: #7c3aed; --violet-50: #f5f3ff;
-  --orange-600: #ea580c; --orange-50: #fff7ed;
-  --amber-600: #d97706; --amber-50: #fffbeb;
-  --emerald-600: #059669; --emerald-50: #ecfdf5;
-  --rose-600: #e11d48; --rose-50: #fff1f2;
-  --gray-50: #f8fafc; --gray-100: #f1f5f9; --gray-200: #e2e8f0;
-  --gray-400: #94a3b8; --gray-500: #64748b; --gray-600: #475569;
-  --gray-800: #1e293b; --gray-900: #0f172a;
+  --accent: oklch(0.55 0.12 195);
+  --accent-subtle: oklch(0.96 0.02 195);
+  --accent-text: oklch(0.35 0.08 195);
+  --surface-0: #fff;
+  --surface-1: oklch(0.985 0.003 195);
+  --surface-2: oklch(0.90 0.01 195);
+  --text-primary: oklch(0.20 0.02 195);
+  --text-secondary: oklch(0.45 0.02 195);
+  --text-tertiary: oklch(0.65 0.015 195);
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-  color: var(--gray-800);
+  font-family: 'DM Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: var(--text-primary);
   line-height: 1.6;
-  background: #fff;
+  background: var(--surface-0);
 }
-.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.container { max-width: 1000px; margin: 0 auto; padding: 0 var(--space-lg); }
 img { max-width: 100%; height: auto; display: block; }
-a { color: var(--blue-600); text-decoration: none; }
+a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* Fade-in animation */
-.fade-in {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* Section spacing */
-.section { padding: 72px 0; }
-.section-alt { background: var(--gray-50); }
+.section { padding: var(--space-3xl) 0; }
+.section + .section { border-top: 1px solid var(--surface-2); }
+.section-alt { background: transparent; }
 .section-title {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 700;
-  color: var(--gray-900);
-  margin-bottom: 12px;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.02em;
 }
 .section-subtitle {
-  font-size: 16px;
-  color: var(--gray-500);
-  margin-bottom: 40px;
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xl);
+  line-height: 1.65;
 }
 
 /* ===== 1. Hero ===== */
 .hero {
-  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #7c3aed 100%);
-  color: #fff;
-  padding: 80px 0 64px;
+  background: oklch(0.25 0.06 195);
+  color: oklch(0.95 0.01 195);
+  padding: var(--space-3xl) 0 var(--space-2xl);
   text-align: center;
 }
 .hero-tag {
-  display: inline-block;
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255,255,255,0.25);
-  border-radius: 20px;
-  padding: 6px 18px;
-  font-size: 14px;
-  margin-bottom: 24px;
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: oklch(0.75 0.06 195);
+  margin-bottom: var(--space-lg);
 }
 .hero h1 {
-  font-size: 42px;
-  font-weight: 800;
-  line-height: 1.3;
-  margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: var(--space-md);
+  letter-spacing: -0.02em;
 }
 .hero p {
   font-size: 17px;
-  max-width: 640px;
-  margin: 0 auto 32px;
-  opacity: 0.9;
+  max-width: 580px;
+  margin: 0 auto var(--space-lg);
+  color: oklch(0.80 0.02 195);
   line-height: 1.7;
 }
 .hero-btn {
@@ -89,63 +91,65 @@ a:hover { text-decoration: underline; }
   align-items: center;
   gap: 8px;
   background: #fff;
-  color: var(--blue-700);
+  color: var(--accent-text);
   font-weight: 600;
-  padding: 12px 28px;
-  border-radius: 8px;
-  font-size: 15px;
-  transition: transform 0.2s;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: opacity 0.2s;
 }
-.hero-btn:hover { transform: translateY(-1px); text-decoration: none; }
+.hero-btn:hover { opacity: 0.9; text-decoration: none; }
 .stats-bar {
   display: flex;
   justify-content: center;
-  gap: 48px;
-  margin-top: 48px;
+  gap: var(--space-xl);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid oklch(0.35 0.04 195);
   flex-wrap: wrap;
 }
 .stats-bar .stat { text-align: center; }
-.stats-bar .stat-num { font-size: 28px; font-weight: 800; }
-.stats-bar .stat-label { font-size: 13px; opacity: 0.75; margin-top: 2px; }
+.stats-bar .stat-num { font-size: 28px; font-weight: 700; color: #fff; }
+.stats-bar .stat-label { font-size: 13px; color: oklch(0.75 0.02 195); margin-top: 2px; }
 
 /* ===== 2. Credit Banner ===== */
 .credit-banner {
-  background: var(--amber-50);
-  border: 2px solid var(--amber-600);
-  border-radius: 12px;
-  padding: 24px 32px;
+  background: var(--accent-subtle);
+  border: 1px solid var(--surface-2);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: var(--space-lg) var(--space-lg);
   margin: -32px auto 0;
-  max-width: 1100px;
+  max-width: 1000px;
   position: relative;
   z-index: 2;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.8;
-  color: var(--gray-800);
+  color: var(--text-primary);
 }
-.credit-banner-wrap { padding: 0 24px; }
-.credit-banner strong { color: var(--amber-600); }
-.credit-banner a { color: var(--blue-600); font-weight: 600; }
+.credit-banner-wrap { padding: 0 var(--space-lg); }
+.credit-banner strong { color: var(--accent-text); }
+.credit-banner a { color: var(--accent); font-weight: 600; }
 
 /* ===== 3. Story ===== */
 .story-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  gap: var(--space-xl);
   align-items: center;
 }
 .story-highlight {
-  background: var(--blue-50);
-  border-left: 4px solid var(--blue-600);
-  padding: 16px 20px;
-  border-radius: 0 8px 8px 0;
+  background: var(--accent-subtle);
+  border-left: 2px solid var(--accent);
+  padding: var(--space-md) var(--space-lg);
   margin-top: 20px;
   font-size: 14px;
-  color: var(--gray-600);
+  color: var(--accent-text);
   line-height: 1.7;
 }
 .story-img {
-  border-radius: 12px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  border-radius: 8px;
+  border: 1px solid var(--surface-2);
 }
 
 /* ===== 4. Flow ===== */
@@ -165,25 +169,26 @@ a:hover { text-decoration: underline; }
   position: relative;
 }
 .flow-icon {
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
+  font-size: 18px;
   margin-bottom: 10px;
+  background: var(--accent);
   color: #fff;
-  font-weight: 700;
+  font-weight: 600;
   flex-shrink: 0;
 }
-.flow-step h4 { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: var(--gray-800); }
-.flow-step p { font-size: 12px; color: var(--gray-500); line-height: 1.5; }
+.flow-step h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; color: var(--text-primary); }
+.flow-step p { font-size: 12px; color: var(--text-tertiary); line-height: 1.5; }
 .flow-arrow {
   display: flex;
   align-items: center;
   padding-top: 14px;
-  color: var(--gray-400);
+  color: var(--text-tertiary);
   font-size: 20px;
   flex-shrink: 0;
 }
@@ -192,79 +197,74 @@ a:hover { text-decoration: underline; }
 .features-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 28px;
+  gap: var(--space-xl);
 }
 .feature-card {
-  background: #fff;
-  border: 1px solid var(--gray-200);
-  border-radius: 12px;
   overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s;
 }
-.feature-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-}
-.feature-card-body { padding: 20px 24px; }
+.feature-card-body { padding: 0; }
 .feature-card-icon {
-  font-size: 28px;
-  margin-bottom: 8px;
+  font-size: 20px;
+  margin-bottom: var(--space-sm);
 }
 .feature-card-body h3 {
-  font-size: 17px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: var(--gray-900);
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  color: var(--text-primary);
 }
 .feature-card-body ul {
   list-style: none;
   padding: 0;
   font-size: 14px;
-  color: var(--gray-600);
+  color: var(--text-secondary);
 }
 .feature-card-body ul li::before {
   content: ">";
-  color: var(--blue-600);
+  color: var(--accent);
   margin-right: 6px;
   font-weight: 700;
 }
 .feature-card-img {
-  border-top: 1px solid var(--gray-200);
+  margin-top: var(--space-md);
+  border: 1px solid var(--surface-2);
+  border-radius: 8px;
+  overflow: hidden;
 }
-.feature-card-img img { width: 100%; }
+.feature-card-img img { width: 100%; display: block; }
 
 /* ===== 6. HR Scenarios ===== */
 .scenario-card {
-  background: #fff;
-  border: 1px solid var(--gray-200);
-  border-radius: 16px;
-  padding: 32px;
-  margin-bottom: 32px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: var(--space-xl);
+  padding-bottom: var(--space-xl);
+  border-bottom: 1px solid var(--surface-2);
 }
-.scenario-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+.scenario-card:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 .scenario-badge {
   display: inline-block;
-  font-size: 12px;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 3px;
   margin-bottom: 12px;
+  background: var(--accent-subtle);
+  color: var(--accent-text);
 }
 .scenario-card h3 {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  color: var(--gray-900);
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: var(--space-sm);
+  color: var(--text-primary);
 }
 .scenario-card > p {
   font-size: 15px;
-  color: var(--gray-600);
-  margin-bottom: 20px;
-  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+  line-height: 1.65;
 }
 .scenario-screenshots {
   display: grid;
@@ -277,136 +277,130 @@ a:hover { text-decoration: underline; }
 }
 .scenario-screenshots img {
   border-radius: 8px;
-  border: 1px solid var(--gray-200);
+  border: 1px solid var(--surface-2);
 }
 .scenario-note {
   margin-top: 12px;
   font-size: 13px;
-  color: var(--gray-400);
+  color: var(--text-tertiary);
   font-style: italic;
 }
 
 /* ===== 7. Value Grid ===== */
 .value-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl) var(--space-2xl);
 }
 .value-item {
-  text-align: center;
-  padding: 28px 16px;
-  background: #fff;
-  border-radius: 12px;
-  border: 1px solid var(--gray-200);
-  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: left;
 }
-.value-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-}
-.value-icon { font-size: 36px; margin-bottom: 12px; }
-.value-item h4 { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: var(--gray-900); }
-.value-item p { font-size: 14px; color: var(--gray-500); line-height: 1.6; }
+.value-icon { font-size: 20px; margin-bottom: var(--space-sm); }
+.value-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; color: var(--text-primary); }
+.value-item p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
 
 /* ===== 8. Tech Strip ===== */
 .tech-strip {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: var(--space-sm);
   justify-content: center;
 }
 .tech-tag {
-  background: var(--blue-50);
-  color: var(--blue-700);
-  font-size: 14px;
-  font-weight: 600;
-  padding: 8px 18px;
-  border-radius: 20px;
-  border: 1px solid rgba(37, 99, 235, 0.15);
+  background: var(--surface-1);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 4px;
+  border: 1px solid var(--surface-2);
 }
 
 /* ===== 9. Dev Timeline ===== */
 .dev-timeline { max-width: 720px; margin: 0 auto; }
-.dev-day { margin-bottom: 28px; }
+.dev-day { margin-bottom: 32px; }
 .dev-day-header {
   display: flex; align-items: center; gap: 12px;
-  margin-bottom: 10px; padding-bottom: 8px;
-  border-bottom: 2px solid var(--gray-200);
+  margin-bottom: 12px; padding-bottom: 8px;
+  border-bottom: 1px solid var(--surface-2);
 }
-.dev-day-date { font-size: 16px; font-weight: 700; color: var(--gray-900); }
+.dev-day-date { font-size: 16px; font-weight: 700; color: var(--text-primary); }
 .dev-day-tag {
-  font-size: 12px; font-weight: 600; padding: 2px 10px;
-  border-radius: 12px; background: var(--blue-50); color: var(--blue-600);
+  font-size: 11px; font-weight: 500; padding: 2px 8px;
+  border-radius: 3px; background: var(--accent-subtle); color: var(--accent-text);
 }
-.dev-commits { padding-left: 16px; border-left: 2px solid var(--gray-100); }
+.dev-commits { padding-left: 16px; border-left: 2px solid var(--surface-2); }
 .dev-commit {
   display: flex; align-items: baseline; gap: 12px;
-  padding: 5px 0 5px 16px; position: relative; font-size: 13px;
+  padding: 6px 0 6px 16px; position: relative; font-size: 13px;
 }
 .dev-commit::before {
-  content: ''; position: absolute; left: -5px; top: 11px;
-  width: 8px; height: 8px; border-radius: 50%; background: var(--gray-200);
+  content: ''; position: absolute; left: -5px; top: 12px;
+  width: 8px; height: 8px; border-radius: 50%; background: var(--surface-2);
 }
-.dev-commit.hl::before { background: var(--blue-600); }
-.dev-commit.hl .dev-msg { font-weight: 600; color: var(--gray-900); }
+.dev-commit.hl::before { background: var(--accent); }
+.dev-commit.hl .dev-msg { font-weight: 500; color: var(--text-primary); }
 .dev-time {
   font-family: 'SF Mono', 'Menlo', monospace;
-  font-size: 12px; color: var(--gray-400); min-width: 40px; flex-shrink: 0;
+  font-size: 12px; color: var(--text-tertiary); min-width: 40px; flex-shrink: 0;
 }
-.dev-msg { color: var(--gray-600); }
+.dev-msg { color: var(--text-secondary); }
 .dev-summary {
   display: flex;
   justify-content: center;
-  gap: 48px;
-  margin-top: 24px;
+  gap: var(--space-xl);
+  margin-top: var(--space-xl);
+  padding: var(--space-lg);
+  background: var(--accent-subtle);
+  border-radius: 8px;
   flex-wrap: wrap;
 }
 .dev-summary .stat {
   text-align: center;
 }
 .dev-summary .stat-num {
-  font-size: 28px;
-  font-weight: 800;
-  color: var(--blue-600);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent);
 }
 .dev-summary .stat-label {
   font-size: 13px;
-  color: var(--gray-500);
+  color: var(--text-secondary);
   margin-top: 2px;
 }
 
 /* ===== 10. About ===== */
 .about-box {
-  max-width: 680px;
+  max-width: 600px;
   margin: 0 auto;
   text-align: center;
 }
 .about-box blockquote {
-  font-size: 18px;
-  font-style: italic;
-  color: var(--gray-600);
-  line-height: 1.8;
-  margin-bottom: 32px;
-  padding: 0 20px;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.7;
+  margin-bottom: var(--space-xl);
   border: none;
 }
 .contact-info {
-  display: flex;
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  gap: 32px;
+  gap: var(--space-md);
   flex-wrap: wrap;
-  font-size: 15px;
-  color: var(--gray-600);
+  font-size: 14px;
+  color: var(--text-secondary);
 }
-.contact-info a { color: var(--blue-600); font-weight: 600; }
+.contact-info a { color: var(--accent); font-weight: 500; }
 
 /* ===== 11. Footer ===== */
 .site-footer {
-  background: var(--gray-900);
-  color: var(--gray-400);
+  border-top: 1px solid var(--surface-2);
+  color: var(--text-tertiary);
   text-align: center;
-  padding: 28px 0;
-  font-size: 14px;
+  padding: var(--space-xl) 0;
+  font-size: 13px;
 }
 
 /* ===== Responsive ===== */
@@ -460,19 +454,19 @@ a:hover { text-decoration: underline; }
 
 <!-- 2. Credit Banner -->
 <div class="credit-banner-wrap">
-  <div class="credit-banner fade-in">
+  <div class="credit-banner">
     <strong>开源致谢</strong> &mdash;
     本项目基于 <a href="https://github.com/cft0808/edict" target="_blank">@cft0808</a> 的开源项目 <a href="https://github.com/cft0808/edict" target="_blank">Edict</a> 部署搭建，核心框架代码归原作者所有。我的工作集中在：<strong>部署上线、HR 场景适配、集成自研招聘系统 Mellon Collie 作为 Agent Skills</strong>。在此特别感谢原作者的优秀工作！
   </div>
 </div>
 
 <!-- 3. Story -->
-<section class="section fade-in">
+<section class="section">
   <div class="container">
     <div class="story-grid">
       <div>
         <div class="section-title">我做了什么？</div>
-        <p style="font-size:15px;color:var(--gray-600);line-height:1.8;margin-top:16px;">
+        <p style="font-size:15px;color:var(--text-secondary);line-height:1.8;margin-top:16px;">
           我发现了开源项目 Edict，其"三省六部"的 AI Agent 治理理念非常契合 HR 领域的流程化管理需求。于是我将其部署上线，并将自己在某科技公司开发的 <strong>Mellon Collie</strong>（HC 招聘追踪系统）集成为太子 Agent 的 Skill，实现了简历筛选、行业简报推送等招聘流程的自动化。
         </p>
         <div class="story-highlight">
@@ -487,7 +481,7 @@ a:hover { text-decoration: underline; }
 </section>
 
 <!-- 4. Flow -->
-<section class="section section-alt fade-in">
+<section class="section section-alt">
   <div class="container">
     <div style="text-align:center;margin-bottom:40px;">
       <div class="section-title">三省六部处理流程</div>
@@ -495,43 +489,43 @@ a:hover { text-decoration: underline; }
     </div>
     <div class="flow-container">
       <div class="flow-step">
-        <div class="flow-icon" style="background:var(--violet-600);">1</div>
+        <div class="flow-icon" style="background:var(--accent);">1</div>
         <h4>飞书收件</h4>
         <p>太子 Agent 接收消息</p>
       </div>
       <div class="flow-arrow">&rarr;</div>
       <div class="flow-step">
-        <div class="flow-icon" style="background:var(--blue-600);">2</div>
+        <div class="flow-icon" style="background:var(--accent);">2</div>
         <h4>智能分拣</h4>
         <p>太子判断意图分类</p>
       </div>
       <div class="flow-arrow">&rarr;</div>
       <div class="flow-step">
-        <div class="flow-icon" style="background:var(--emerald-600);">3</div>
+        <div class="flow-icon" style="background:var(--accent);">3</div>
         <h4>规划方案</h4>
         <p>中书省制定执行计划</p>
       </div>
       <div class="flow-arrow">&rarr;</div>
       <div class="flow-step">
-        <div class="flow-icon" style="background:var(--orange-600);">4</div>
+        <div class="flow-icon" style="background:var(--accent);">4</div>
         <h4>审核把关</h4>
         <p>门下省审查合规性</p>
       </div>
       <div class="flow-arrow">&rarr;</div>
       <div class="flow-step">
-        <div class="flow-icon" style="background:var(--rose-600);">5</div>
+        <div class="flow-icon" style="background:var(--accent);">5</div>
         <h4>任务派发</h4>
         <p>尚书省分配给六部</p>
       </div>
       <div class="flow-arrow">&rarr;</div>
       <div class="flow-step">
-        <div class="flow-icon" style="background:var(--amber-600);">6</div>
+        <div class="flow-icon" style="background:var(--accent);">6</div>
         <h4>六部执行</h4>
         <p>各部调用工具完成</p>
       </div>
       <div class="flow-arrow">&rarr;</div>
       <div class="flow-step">
-        <div class="flow-icon" style="background:var(--gray-600);">7</div>
+        <div class="flow-icon" style="background:var(--text-secondary);">7</div>
         <h4>归档奏折</h4>
         <p>结果记录并回复</p>
       </div>
@@ -540,14 +534,14 @@ a:hover { text-decoration: underline; }
 </section>
 
 <!-- 5. Dashboard -->
-<section class="section fade-in">
+<section class="section">
   <div class="container">
     <div style="text-align:center;margin-bottom:40px;">
       <div class="section-title">功能展示 &mdash; Dashboard</div>
       <div class="section-subtitle">全方位管控 AI Agent 的工作台</div>
     </div>
     <div class="features-grid">
-      <div class="feature-card fade-in">
+      <div class="feature-card">
         <div class="feature-card-body">
           <div class="feature-card-icon">&#128220;</div>
           <h3>旨意看板</h3>
@@ -558,7 +552,7 @@ a:hover { text-decoration: underline; }
         </div>
         <div class="feature-card-img"><img src="showcase-assets/01-kanban-main.png" alt="旨意看板"></div>
       </div>
-      <div class="feature-card fade-in">
+      <div class="feature-card">
         <div class="feature-card-body">
           <div class="feature-card-icon">&#128225;</div>
           <h3>省部调度</h3>
@@ -569,7 +563,7 @@ a:hover { text-decoration: underline; }
         </div>
         <div class="feature-card-img"><img src="showcase-assets/02-monitor.png" alt="省部调度"></div>
       </div>
-      <div class="feature-card fade-in">
+      <div class="feature-card">
         <div class="feature-card-body">
           <div class="feature-card-icon">&#128101;</div>
           <h3>官员总览</h3>
@@ -580,7 +574,7 @@ a:hover { text-decoration: underline; }
         </div>
         <div class="feature-card-img"><img src="showcase-assets/06-official-overview.png" alt="官员总览"></div>
       </div>
-      <div class="feature-card fade-in">
+      <div class="feature-card">
         <div class="feature-card-body">
           <div class="feature-card-icon">&#9881;</div>
           <h3>模型配置</h3>
@@ -591,7 +585,7 @@ a:hover { text-decoration: underline; }
         </div>
         <div class="feature-card-img"><img src="showcase-assets/04-model-config.png" alt="模型配置"></div>
       </div>
-      <div class="feature-card fade-in">
+      <div class="feature-card">
         <div class="feature-card-body">
           <div class="feature-card-icon">&#128295;</div>
           <h3>技能管理</h3>
@@ -602,7 +596,7 @@ a:hover { text-decoration: underline; }
         </div>
         <div class="feature-card-img"><img src="showcase-assets/05-skills-config.png" alt="技能管理"></div>
       </div>
-      <div class="feature-card fade-in">
+      <div class="feature-card">
         <div class="feature-card-body">
           <div class="feature-card-icon">&#128240;</div>
           <h3>天下要闻</h3>
@@ -618,7 +612,7 @@ a:hover { text-decoration: underline; }
 </section>
 
 <!-- 6. HR Scenarios -->
-<section class="section section-alt fade-in">
+<section class="section section-alt">
   <div class="container">
     <div style="text-align:center;margin-bottom:40px;">
       <div class="section-title">HR 场景落地</div>
@@ -626,8 +620,8 @@ a:hover { text-decoration: underline; }
     </div>
 
     <!-- Scenario 1 -->
-    <div class="scenario-card fade-in">
-      <span class="scenario-badge" style="background:var(--violet-50);color:var(--violet-600);">场景一</span>
+    <div class="scenario-card">
+      <span class="scenario-badge" style="background:var(--accent-subtle);color:var(--accent);">场景一</span>
       <h3>智能简历筛选</h3>
       <p>通过飞书对话指挥太子 Agent 批量评估候选人简历，自动执行 PASS / FAIL / BORDERLINE 分类，62 位候选人一次性完成评估。</p>
       <div class="scenario-screenshots">
@@ -638,8 +632,8 @@ a:hover { text-decoration: underline; }
     </div>
 
     <!-- Scenario: Mellon Collie -->
-    <div class="scenario-card fade-in">
-      <span class="scenario-badge" style="background:var(--blue-50);color:var(--blue-600);">核心集成</span>
+    <div class="scenario-card">
+      <span class="scenario-badge" style="background:var(--accent-subtle);color:var(--accent);">核心集成</span>
       <h3>Mellon Collie 招聘系统对接</h3>
       <p>将自研的 HC 招聘追踪系统 Mellon Collie 集成为太子 Agent 的 Skill，通过飞书对话即可查询招聘大盘数据、各岗位候选人状态、Agent 能做的事情清单，实现招聘管理的自然语言交互。</p>
       <div class="scenario-screenshots">
@@ -649,8 +643,8 @@ a:hover { text-decoration: underline; }
     </div>
 
     <!-- Scenario 2 -->
-    <div class="scenario-card fade-in">
-      <span class="scenario-badge" style="background:var(--emerald-50);color:var(--emerald-600);">场景二</span>
+    <div class="scenario-card">
+      <span class="scenario-badge" style="background:var(--accent-subtle);color:var(--accent);">场景二</span>
       <h3>每日 AI 行业简报</h3>
       <p>配置定时任务，每天自动采集 AI 行业新闻，格式化后推送到飞书群，让 HR 团队掌握行业动态。</p>
       <div class="scenario-screenshots">
@@ -660,8 +654,8 @@ a:hover { text-decoration: underline; }
     </div>
 
     <!-- Scenario 3 -->
-    <div class="scenario-card fade-in">
-      <span class="scenario-badge" style="background:var(--orange-50);color:var(--orange-600);">场景三</span>
+    <div class="scenario-card">
+      <span class="scenario-badge" style="background:var(--accent-subtle);color:var(--accent);">场景三</span>
       <h3>日常任务协作</h3>
       <p>通过飞书自然语言对话下达任务，太子 Agent 自动分拣、转交中书省规划、门下省审核，完整走完三省六部流程。</p>
       <div class="scenario-screenshots">
@@ -673,28 +667,28 @@ a:hover { text-decoration: underline; }
 </section>
 
 <!-- 7. Value -->
-<section class="section fade-in">
+<section class="section">
   <div class="container">
     <div style="text-align:center;margin-bottom:40px;">
       <div class="section-title">项目价值</div>
     </div>
     <div class="value-grid">
-      <div class="value-item fade-in">
+      <div class="value-item">
         <div class="value-icon">&#129302;</div>
         <h4>AI 治理创新</h4>
         <p>用制度化方式管理 AI Agent，不是放任自主对话</p>
       </div>
-      <div class="value-item fade-in">
+      <div class="value-item">
         <div class="value-icon">&#128279;</div>
         <h4>业务集成能力</h4>
         <p>将开源工具与自研系统打通，落地实际业务场景</p>
       </div>
-      <div class="value-item fade-in">
+      <div class="value-item">
         <div class="value-icon">&#128202;</div>
         <h4>全链路可观测</h4>
         <p>每个决策有审计日志，每个 Agent 有绩效统计</p>
       </div>
-      <div class="value-item fade-in">
+      <div class="value-item">
         <div class="value-icon">&#128640;</div>
         <h4>快速落地能力</h4>
         <p>从发现项目到完成部署集成，Vibe Coding 高效交付</p>
@@ -704,7 +698,7 @@ a:hover { text-decoration: underline; }
 </section>
 
 <!-- 8. Tech Stack -->
-<section class="section section-alt fade-in">
+<section class="section section-alt">
   <div class="container">
     <div style="text-align:center;margin-bottom:32px;">
       <div class="section-title">技术栈</div>
@@ -724,7 +718,7 @@ a:hover { text-decoration: underline; }
 </section>
 
 <!-- 9. Dev Timeline -->
-<section class="section fade-in">
+<section class="section">
   <div class="container">
     <div style="text-align:center;margin-bottom:24px;">
       <div class="section-title">开发日志</div>
@@ -808,7 +802,7 @@ a:hover { text-decoration: underline; }
 </section>
 
 <!-- 10. About -->
-<section class="section section-alt fade-in">
+<section class="section section-alt">
   <div class="container">
     <div style="text-align:center;margin-bottom:32px;">
       <div class="section-title">关于我</div>
@@ -827,25 +821,10 @@ a:hover { text-decoration: underline; }
 <!-- 11. Footer -->
 <footer class="site-footer">
   <div class="container">
-    Showcase by 向锦涛 | 基于 <a href="https://github.com/cft0808/edict" target="_blank" style="color:var(--gray-400);">Edict</a> 开源项目 | 2026
+    Showcase by 向锦涛 | 基于 <a href="https://github.com/cft0808/edict" target="_blank" style="color:var(--text-tertiary);">Edict</a> 开源项目 | 2026
   </div>
 </footer>
 
-<script>
-(function() {
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll(".fade-in").forEach(function(el) {
-    observer.observe(el);
-  });
-})();
-</script>
 
 </body>
 </html>
