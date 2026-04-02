@@ -403,6 +403,255 @@ a:hover { text-decoration: underline; }
   font-size: 13px;
 }
 
+/* ===== Clawbot Section ===== */
+.clawbot-hero-banner {
+  background: linear-gradient(135deg, oklch(0.16 0.04 195), oklch(0.22 0.06 195));
+  border-radius: 12px;
+  padding: var(--space-xl) var(--space-xl);
+  margin-bottom: var(--space-xl);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.clawbot-hero-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%; right: -20%;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, oklch(0.35 0.12 195 / 0.15), transparent 70%);
+  pointer-events: none;
+}
+.clawbot-hero-text { position: relative; z-index: 1; }
+.clawbot-hero-text h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: var(--space-sm);
+  line-height: 1.3;
+}
+.clawbot-hero-text p {
+  font-size: 14px;
+  color: oklch(0.75 0.02 195);
+  line-height: 1.7;
+  margin-bottom: var(--space-lg);
+}
+.clawbot-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.clawbot-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: oklch(0.30 0.05 195);
+  border: 1px solid oklch(0.40 0.06 195);
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 12px;
+  color: oklch(0.85 0.03 195);
+  font-weight: 500;
+}
+.clawbot-pill .pill-num {
+  font-weight: 700;
+  color: oklch(0.80 0.10 160);
+}
+.clawbot-hero-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+.clawbot-metric {
+  background: oklch(0.20 0.03 195 / 0.8);
+  border: 1px solid oklch(0.35 0.05 195);
+  border-radius: 8px;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.clawbot-metric .metric-label {
+  font-size: 13px;
+  color: oklch(0.65 0.02 195);
+}
+.clawbot-metric .metric-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  font-family: 'DM Sans', monospace;
+}
+.clawbot-metric .metric-value .metric-unit {
+  font-size: 12px;
+  font-weight: 400;
+  color: oklch(0.55 0.02 195);
+  margin-left: 4px;
+}
+.clawbot-metric.highlight {
+  border-color: oklch(0.50 0.12 160);
+  background: oklch(0.18 0.05 160 / 0.6);
+}
+.clawbot-metric.highlight .metric-value { color: oklch(0.80 0.12 160); }
+
+/* Anti-detection */
+.anti-detect-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  margin: var(--space-xl) 0;
+}
+.anti-detect-card {
+  background: var(--surface-1);
+  border: 1px solid var(--surface-2);
+  border-radius: 8px;
+  padding: var(--space-lg);
+}
+.anti-detect-card h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.anti-detect-card ul {
+  list-style: none;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+.anti-detect-card ul li::before {
+  content: ">";
+  color: var(--accent);
+  margin-right: 6px;
+  font-weight: 700;
+}
+
+/* Clawbot Table */
+.clawbot-table-section {
+  margin-top: var(--space-xl);
+}
+.clawbot-table-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+.clawbot-table-bar h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.clawbot-table-bar .table-meta {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  display: flex;
+  gap: var(--space-md);
+}
+.clawbot-table-bar .table-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.clawbot-table-wrap {
+  border: 1px solid var(--surface-2);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.clawbot-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.clawbot-table thead {
+  background: var(--surface-1);
+}
+.clawbot-table th {
+  text-align: left;
+  padding: 10px 16px;
+  font-weight: 600;
+  font-size: 11px;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--surface-2);
+  white-space: nowrap;
+}
+.clawbot-table td {
+  padding: 9px 16px;
+  border-bottom: 1px solid oklch(0.96 0.005 195);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+.clawbot-table tbody tr:last-child td { border-bottom: none; }
+.clawbot-table tbody tr:hover td { background: oklch(0.98 0.005 195); }
+.clawbot-table .candidate-name {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+.status-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 10px;
+  letter-spacing: 0.01em;
+}
+.status-tag.resume { background: oklch(0.92 0.06 155); color: oklch(0.30 0.10 155); }
+.status-tag.greeted { background: oklch(0.92 0.04 220); color: oklch(0.35 0.08 220); }
+.status-tag.skipped { background: oklch(0.94 0.02 80); color: oklch(0.40 0.06 80); }
+.clawbot-table-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 16px;
+  background: var(--surface-1);
+  border-top: 1px solid var(--surface-2);
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+/* Clawbot screenshots */
+.clawbot-gallery {
+  margin-top: var(--space-xl);
+}
+.clawbot-gallery h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+}
+.clawbot-shots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.clawbot-shots figure {
+  margin: 0;
+  overflow: hidden;
+}
+.clawbot-shots img {
+  border-radius: 8px;
+  border: 1px solid var(--surface-2);
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+.clawbot-shots img:hover {
+  transform: scale(1.02);
+}
+.clawbot-shots figcaption {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-top: 6px;
+  text-align: center;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .hero h1 { font-size: 28px; }
@@ -419,6 +668,11 @@ a:hover { text-decoration: underline; }
   .contact-info { flex-direction: column; gap: 12px; align-items: center; }
   .section { padding: 48px 0; }
   .credit-banner { margin-top: -20px; padding: 20px 20px; }
+  .clawbot-hero-banner { grid-template-columns: 1fr; }
+  .anti-detect-grid { grid-template-columns: 1fr; }
+  .clawbot-shots { grid-template-columns: 1fr; }
+  .clawbot-table { font-size: 12px; }
+  .clawbot-table th, .clawbot-table td { padding: 8px 10px; }
 }
 @media (max-width: 480px) {
   .hero { padding: 56px 0 48px; }
@@ -428,6 +682,9 @@ a:hover { text-decoration: underline; }
   .flow-container { flex-direction: column; align-items: center; }
   .flow-arrow { transform: rotate(90deg); padding: 0; }
   .dev-summary { gap: 24px; }
+  .clawbot-hero-text h3 { font-size: 18px; }
+  .clawbot-pills { gap: 6px; }
+  .anti-detect-list { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -438,7 +695,7 @@ a:hover { text-decoration: underline; }
   <div class="container">
     <div class="hero-tag">开源项目部署 + HR 场景落地</div>
     <h1>用古代三省六部制<br>治理现代 AI Agent</h1>
-    <p>基于开源项目 Edict 部署上线，集成自研招聘系统 Mellon Collie，将 AI 多 Agent 编排应用于 HR 领域的招聘自动化与信息聚合。</p>
+    <p>基于开源项目 Edict 部署上线，集成自研招聘系统 Mellon Collie 与 BOSS直聘自动化机器人，将 AI 多 Agent 编排应用于 HR 领域的招聘全流程自动化。</p>
     <a href="https://github.com/CuiSheng-TAO" class="hero-btn">
       <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
       GitHub
@@ -448,6 +705,7 @@ a:hover { text-decoration: underline; }
       <div class="stat"><div class="stat-num">10+</div><div class="stat-label">看板面板</div></div>
       <div class="stat"><div class="stat-num">75+</div><div class="stat-label">次提交</div></div>
       <div class="stat"><div class="stat-num">3</div><div class="stat-label">个 HR 场景</div></div>
+      <div class="stat"><div class="stat-num">7&times;24</div><div class="stat-label">自动化机器人</div></div>
     </div>
   </div>
 </section>
@@ -666,6 +924,246 @@ a:hover { text-decoration: underline; }
   </div>
 </section>
 
+<!-- 6.5 Clawbot: BOSS直聘自动打招呼机器人 -->
+<section class="section">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:40px;">
+      <div class="section-title">7&times;24 招聘自动化小龙虾</div>
+      <div class="section-subtitle">部署在独立机器上的 BOSS直聘全自动招聘机器人 &mdash; 打招呼、收简历、整理候选人，全程无人值守</div>
+    </div>
+
+    <!-- Hero Banner -->
+    <div class="clawbot-hero-banner">
+      <div class="clawbot-hero-text">
+        <h3>OK Clawbot<br>永不下线的招聘助手</h3>
+        <p>基于浏览器自动化的 BOSS直聘机器人，通过飞书 Bot 自动汇报工作状态。用真实键盘模拟操作，随机间隔拟人化行为，7&times;24 小时持续运转。</p>
+        <div class="clawbot-pills">
+          <span class="clawbot-pill"><span class="pill-num">15-25s</span> 新招呼间隔</span>
+          <span class="clawbot-pill"><span class="pill-num">10-18s</span> 推荐牛人</span>
+          <span class="clawbot-pill"><span class="pill-num">5+5</span> 每轮上限</span>
+        </div>
+      </div>
+      <div class="clawbot-hero-visual">
+        <div class="clawbot-metric highlight">
+          <span class="metric-label">效率提升</span>
+          <span class="metric-value">~6min &rarr; ~3min<span class="metric-unit">/ 10人</span></span>
+        </div>
+        <div class="clawbot-metric">
+          <span class="metric-label">两日处理量</span>
+          <span class="metric-value">22<span class="metric-unit">位候选人</span></span>
+        </div>
+        <div class="clawbot-metric">
+          <span class="metric-label">收到简历</span>
+          <span class="metric-value">5<span class="metric-unit">份</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Anti-detection Cards -->
+    <div class="anti-detect-grid">
+      <div class="anti-detect-card">
+        <h4>&#128737; 防监管策略</h4>
+        <ul>
+          <li>消息内容每条不同，杜绝模板化</li>
+          <li>用真实键盘输入，不用 JS 注入</li>
+          <li>偶尔有停顿，模拟真人犹豫</li>
+          <li>每轮最多 5+5 人，绝不暴力刷</li>
+        </ul>
+      </div>
+      <div class="anti-detect-card">
+        <h4>&#9201; 智能节奏控制</h4>
+        <ul>
+          <li>白天 15-20 秒，深夜 20-30 秒</li>
+          <li>新招呼进聊天后 1 秒内决定打不打</li>
+          <li>打就立刻打字+发送+求简历一气呵成</li>
+          <li>偶尔穿插 8-12 秒的快操作</li>
+        </ul>
+      </div>
+      <div class="anti-detect-card">
+        <h4>&#128230; 自动收简历</h4>
+        <ul>
+          <li>每轮开头先扫一遍全部 tab</li>
+          <li>有「同意附件」的立刻点击收取</li>
+          <li>不漏收任何一份简历</li>
+          <li>收取记录实时同步飞书表格</li>
+        </ul>
+      </div>
+      <div class="anti-detect-card">
+        <h4>&#128225; 飞书自动汇报</h4>
+        <ul>
+          <li>每轮心跳完成后自动发值班报告</li>
+          <li>汇报：处理人数 / 收到简历 / 异常</li>
+          <li>数据自动录入飞书多维表格</li>
+          <li>实时可查，随时掌握招聘进展</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Desensitized Table -->
+    <div class="clawbot-table-section">
+      <div class="clawbot-table-bar">
+        <h4>&#128203; BOSS直聘值班记录（脱敏示例）</h4>
+        <div class="table-meta">
+          <span>&#128197; 3/30 &ndash; 3/31</span>
+          <span>&#128100; 22 条记录</span>
+        </div>
+      </div>
+      <div class="clawbot-table-wrap">
+        <table class="clawbot-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>候选人</th>
+              <th>岗位</th>
+              <th>学校</th>
+              <th>学历</th>
+              <th>状态</th>
+              <th>处理时间</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td class="candidate-name">候选人 A</td>
+              <td>Vibe Coding 全栈工程师</td>
+              <td>华中科技大学</td>
+              <td>硕士</td>
+              <td><span class="status-tag resume">已收简历</span></td>
+              <td>3/30 10:32</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td class="candidate-name">候选人 B</td>
+              <td>AI Agent 全栈工程师</td>
+              <td>天津城建大学</td>
+              <td>本科</td>
+              <td><span class="status-tag resume">已收简历</span></td>
+              <td>3/30 10:38</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td class="candidate-name">候选人 C</td>
+              <td>机器学习算法实习生</td>
+              <td>上海中侨大学</td>
+              <td>本科</td>
+              <td><span class="status-tag resume">已收简历</span></td>
+              <td>3/30 10:45</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td class="candidate-name">候选人 D</td>
+              <td>Vibe Coding 全栈工程师</td>
+              <td>南京理工大学</td>
+              <td>硕士</td>
+              <td><span class="status-tag greeted">已打招呼</span></td>
+              <td>3/30 09:28</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td class="candidate-name">候选人 E</td>
+              <td>智能体软件工程师</td>
+              <td>武汉大学</td>
+              <td>硕士</td>
+              <td><span class="status-tag greeted">已打招呼</span></td>
+              <td>3/30 09:19</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td class="candidate-name">候选人 F</td>
+              <td>AI Agent 全栈工程师</td>
+              <td>西安电子科技大学</td>
+              <td>本科</td>
+              <td><span class="status-tag greeted">已打招呼</span></td>
+              <td>3/31 10:29</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td class="candidate-name">候选人 G</td>
+              <td>Vibe Coding 全栈工程师</td>
+              <td>湖南大学</td>
+              <td>硕士</td>
+              <td><span class="status-tag resume">已收简历</span></td>
+              <td>3/31 00:44</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td class="candidate-name">候选人 H</td>
+              <td>智能体软件工程师</td>
+              <td>中南大学</td>
+              <td>硕士</td>
+              <td><span class="status-tag greeted">已打招呼</span></td>
+              <td>3/31 06:38</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td class="candidate-name">候选人 I</td>
+              <td>机器学习算法实习生</td>
+              <td>北京邮电大学</td>
+              <td>本科</td>
+              <td><span class="status-tag skipped">跳过</span></td>
+              <td>3/30 09:23</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td class="candidate-name">候选人 J</td>
+              <td>Vibe Coding 全栈工程师</td>
+              <td>东北大学</td>
+              <td>本科</td>
+              <td><span class="status-tag greeted">已打招呼</span></td>
+              <td>3/30 00:44</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td class="candidate-name">候选人 K</td>
+              <td>AI Agent 全栈工程师</td>
+              <td>电子科技大学</td>
+              <td>硕士</td>
+              <td><span class="status-tag greeted">已打招呼</span></td>
+              <td>3/31 10:37</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td class="candidate-name">候选人 L</td>
+              <td>智能体软件工程师</td>
+              <td>重庆大学</td>
+              <td>本科</td>
+              <td><span class="status-tag skipped">跳过</span></td>
+              <td>3/31 04:15</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="clawbot-table-footer">
+          展示 12 / 22 条 &mdash; 已收简历 5 份 &middot; 已打招呼 13 人 &middot; 跳过 4 人
+        </div>
+      </div>
+    </div>
+
+    <!-- Screenshots Gallery -->
+    <div class="clawbot-gallery">
+      <h4>实际运行截图</h4>
+      <div class="clawbot-shots">
+        <figure>
+          <img src="showcase-assets/boss-01-optimization.png" alt="速度优化策略讨论">
+          <figcaption>飞书 Bot 分析瓶颈并制定优化方案</figcaption>
+        </figure>
+        <figure>
+          <img src="showcase-assets/boss-03-chat-report.png" alt="BOSS直聘聊天 + 值班报告">
+          <figcaption>自动打招呼 + 每轮值班报告汇报</figcaption>
+        </figure>
+        <figure>
+          <img src="showcase-assets/boss-05-auto-patrol.png" alt="自动巡检登录状态">
+          <figcaption>自动登录 BOSS直聘 + 状态巡检</figcaption>
+        </figure>
+        <figure>
+          <img src="showcase-assets/boss-04-boss-ui.png" alt="BOSS直聘界面操作">
+          <figcaption>BOSS直聘界面 &mdash; 自动处理新招呼列表</figcaption>
+        </figure>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- 7. Value -->
 <section class="section">
   <div class="container">
@@ -713,6 +1211,9 @@ a:hover { text-decoration: underline; }
       <span class="tech-tag">GitHub Actions</span>
       <span class="tech-tag">Claude Code</span>
       <span class="tech-tag">Mellon Collie (自研)</span>
+      <span class="tech-tag">Playwright</span>
+      <span class="tech-tag">BOSS直聘 RPA</span>
+      <span class="tech-tag">飞书多维表格</span>
     </div>
   </div>
 </section>
